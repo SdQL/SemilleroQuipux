@@ -1,0 +1,37 @@
+.custom-aside {
+    background-color: #6A737C; /* Color de fondo azul marino */
+    color: white; /* Col500or del texto blanco */
+    display: flex;
+    height: 100vh;
+}
+
+aside {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+}
+
+.custom-list {
+    list-style: none; /* Elimina los estilos de lista */
+    padding: 0;
+    justify-self: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.custom-list-item {
+    margin-bottom: 5%; /* Espacio entre elementos de lista */
+    padding: 20px;
+}
+
+.custom-list-item:hover{
+    background-color: #C8CCD0;
+    color: black;
+}
+
+/* Estilo para el elemento activo */
+.custom-list-item:active {
+    background-color: #C8CCD0; /* Color de fondo blanco claro */
+    color: black;
+}
+

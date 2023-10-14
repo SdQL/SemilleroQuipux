@@ -1,0 +1,106 @@
+<div class="col-md-12 mb-3">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <p class="mb-0 fs-18">Administración de materias</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/adminMaterias']">
+                <i class="bi bi-plus-circle"></i>
+                Nuevo registro
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body px-6">
+        <form class="row gx-3 gy-3 align-items-center">
+            <div class="col-sm-1">
+                <label class="" for="grado">Grado</label>
+                <select class="form-select" id="grado">
+                    <option selected></option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <label class="" for="grupo">Grupo</label>
+                <select class="form-select" id="grupo">
+                    <option selected></option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="" for="materia">Materia</label>
+                <select class="form-select" id="materia">
+                    <option selected>Seleccionar</option>
+                    <option *ngFor="let mat of listaMaterias">{{mat.nombre}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="" for="profesor">Profesor</label>
+                <select class="form-select" id="profesor">
+                    <option selected>Seleccionar</option>
+                </select>
+            </div>
+
+            <div class="col-auto d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-primary mt-4 px-4">Buscar</button>
+                <a href="#" class="text-primary!important text-decoration-underline px-3 mt-4">Limpiar filtros</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="fs-18">Resultados</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Profesor</th>
+                    <th scope="col">Grado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listaMaterias | paginate: { itemsPerPage: 7, currentPage: page}">
+                    <th scope="row">COD0{{item.idMateria}}</th>
+                    <td>{{item.nombre}}</td>
+                    <td>[nombre_profesor]</td>
+                    <td>[lista_grados]</td>
+                    <td style="width: max-content;">
+                        <button class="btn btn-outline-secondary mx-2 px-2"><i class="bi bi-eye-fill"></i></button>
+                        <button type="button" class="btn btn-outline-secondary mx-2 px-2" data-toggle="modal"
+                            data-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Eliminar [nombre_materia]</h5>
+                <button type="button" data-dismiss="modal">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas 
+                    eliminar la materia?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

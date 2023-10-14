@@ -1,0 +1,137 @@
+:root {
+    --primary: #59B3E4;
+    --primary-dark: #316792;
+    --white: #ffffff;
+
+    --box-shadow-light: rgba(0, 0, 0, 0.16);
+    --bg-body: #F4F4F4;
+    --black-500: #6A737C;
+    --black-150: #C8CCD0;
+    --black-200: #898E92;
+    --black-250: #757575;
+    --white-150: #555A5E;
+}
+
+html,
+body {
+    font-size: 14px;
+    background-color: var(--bg-body);
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    box-shadow: 0px 6px 6px #00000015;
+}
+
+/* Texto */
+
+label,
+.title {
+    color: var(--white-150);
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-17 {
+    font-size: 17px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.fs-27 {
+    font-size: 27px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-21 {
+    font-size: 20px
+}
+
+/* botones */
+
+.hover-link {
+    color: var(--white);
+    text-decoration: none !important;
+}
+
+.hover-link:hover {
+    color: var(--white-150);
+}
+
+.link-menu:hover {
+    background-color: var(--black-150);
+}
+
+.link-menu:active {
+    background-color: var(--black-150);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover a {
+    color: var(--white) !important;
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--primary-dark);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--primary-dark);
+}
+
+.card {
+    padding: 0 !important;
+    width: 100%;
+    height: auto;
+    padding: 8px 0px 24px 0px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 3px 6px var(--box-shadow-light);
+    box-shadow: 0px 3px 6px var(--box-shadow-light);
+    border: 1px solid var(--white-900) !important;
+    margin-bottom: 30px;
+}
+
+/* Tablas */

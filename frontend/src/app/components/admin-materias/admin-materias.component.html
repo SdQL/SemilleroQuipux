@@ -1,0 +1,104 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/materias']" class="fs-18 text-decoration-none">Administración de
+                materias</a></li>
+        <li class="breadcrumb-item active fs-18" aria-current="page">Materia</li>
+    </ol>
+</nav>
+
+
+<div class="card my-3">
+    <div class="card-body px-6">
+        <h3 class="text-primary fs-21">Información de la materia</h3>
+
+
+        <form class="row gx-3 gy-3 align-items-center py-3">
+            <div class="col-sm-3">
+                <label class="" for="materia">Materia</label>
+                <select class="form-select" id="materia">
+                    <option selected>Seleccionar</option>
+                    <option *ngFor="let mat of listaMaterias">{{mat.nombre}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label class="" for="profesor">Profesor</label>
+                <select class="form-select" id="profesor">
+                    <option selected>Seleccionar</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <label class="" for="grados">Grado(s)</label>
+                <select class="form-select" id="grados">
+                    <option selected></option>
+                </select>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="fs-21 text-primary">Estudiantes</h3>
+        <form class="row gx-3 gy-3 align-items-center py-2">
+            <div class="col-sm-3">
+                <label class="" for="estudiante">Estudiante</label>
+                <select class="form-select" id="estudiante">
+                    <option selected>Seleccionar</option>
+                    <option *ngFor="let est of listaEstudiantes">{{est.nombre}}</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <label class="" for="codEstudiante">Código estudiante</label>
+                <select class="form-select" id="codEstudiante">
+                    <option selected>Seleccionar</option>
+                </select>
+            </div>
+
+
+            <div class="col-auto d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-primary mt-4 px-4">Buscar</button>
+                <a href="#" class="text-primary!important text-decoration-underline px-3 mt-4">Limpiar filtros</a>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Estudiante</th>
+                    <th scope="col">Grado</th>
+                    <th scope="col">Grupo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Nota promedio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let est of listaEstudiantes | paginate: { itemsPerPage: 7, currentPage: page}">
+                    <td class="col-md-1">2022{{est.idEstudiante}}</td>
+                    <td class="col-md-3">{{est.nombre}}</td>
+                    <td class="col-md-1">[grado]</td>
+                    <td class="col-md-1">[grupo]</td>
+
+                    <td class="col-md-3">
+                        <select class="form-control w-50" id="curso{{est.idEstudiante}}">
+                            <option selected>En curso</option>
+                        </select>
+                    </td>
+                    <td class="col-md-2">
+                        <input type="text" class="form-control w-50" name="nota">
+                    </td>
+                </tr>
+        </table>
+        <div class="d-flex justify-content-end">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+
+    </div>
+</div>
+
+<div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-outline-primary mx-3 my-0">Cancelar</button>
+    <button type="button" class="btn btn-primary my-0">Guardar</button>
+</div>
+<br>

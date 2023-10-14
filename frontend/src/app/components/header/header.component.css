@@ -1,0 +1,16 @@
+.navbar-logo {
+    max-height: auto;
+    max-width: 150px;
+    padding-left: 20px;
+}
+
+
+.username {
+    font-size: 16px;
+    transition: font-size 0.3s ease;
+}
+
+.username:hover {
+    font-size: 17px;
+    transition: font-size 0.3s ease;
+}
